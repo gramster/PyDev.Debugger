@@ -16,7 +16,7 @@ It is a bit ridiculous that we need these.
 # Imports
 #-----------------------------------------------------------------------------
 
-from distutils.version import LooseVersion
+from looseversion import LooseVersion
 
 #-----------------------------------------------------------------------------
 # Code
