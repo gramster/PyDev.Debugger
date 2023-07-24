@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
         python-version: ['3.12']
     steps:
       - uses: actions/checkout@v3
@@ -30,6 +30,7 @@ jobs:
       - name: Install common Python deps
         run: |
           pip install --upgrade pip
+          pip install https://anaconda.org/scientific-python-nightly-wheels/numpy/2.0.0.dev0/download/numpy-2.0.0.dev0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
           pip install wheel cython psutil twine --no-warn-script-location
           
       - name: Build cython
