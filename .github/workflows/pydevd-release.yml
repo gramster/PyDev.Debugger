@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
+        python-version: ['3.12']
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -52,16 +52,5 @@ jobs:
           name: dist-${{ matrix.os }}-${{ matrix.python-version }}
           path: dist/*
           
-      - name: Upload to PyPI .whl
-        run: twine upload dist/*.whl
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.TWINE_KEY }}
-          
-      - name: Upload to PyPI .tar.gz
-        if: ${{ (matrix.os == 'windows-latest') && (matrix.python-version == '3.9') }}
-        run: twine upload dist/*.tar.gz
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.TWINE_KEY }}
+
             
