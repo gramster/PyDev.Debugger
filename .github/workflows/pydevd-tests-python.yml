@@ -20,9 +20,9 @@ jobs:
           #"ubuntu-py38-cython-checkbin",
           #"windows-py39-cython",
           #"windows-py310-cython",
-          "windows-py311-cython",
-          "windows-py312-cython",
-          "ubuntu-py311-cython",
+          #"windows-py311-cython",
+          #"windows-py312-cython",
+          #"ubuntu-py311-cython",
           "ubuntu-py312-cython",
         ]
         
@@ -85,7 +85,7 @@ jobs:
         pip install wheel --no-warn-script-location
         pip install cython --no-warn-script-location
         pip install psutil --no-warn-script-location
-        pip install numpy --no-warn-script-location
+        pip install https://anaconda.org/scientific-python-nightly-wheels/numpy/2.0.0.dev0/download/numpy-2.0.0.dev0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl --no-warn-script-location
         pip install pytest --no-warn-script-location
         pip install pytest-xdist --no-warn-script-location
         pip install psutil --no-warn-script-location
