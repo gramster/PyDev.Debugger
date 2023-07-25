@@ -30,7 +30,7 @@ jobs:
       - name: Install common Python deps
         run: |
           pip install --upgrade pip
-          pip install greenlet=3.0.0a1. # Should be able to remove once 3.12 is released
+          pip install greenlet==3.0.0a1. # Should be able to remove once 3.12 is released
           pip install https://anaconda.org/scientific-python-nightly-wheels/numpy/2.0.0.dev0/download/numpy-2.0.0.dev0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
           pip install wheel cython psutil twine --no-warn-script-location
           
