@@ -125,14 +125,17 @@ jobs:
       run: |
         ./.github/install_and_run_debug_py.sh
     - name: Run Python 3.x tests
+      continue-on-error: true
       env:
         # QT_DEBUG_PLUGINS: 1
         PYTHONPATH: .
         PYDEVD_USE_CYTHON: ${{matrix.PYDEVD_USE_CYTHON }}
       run: |
         pytest -n auto -rfE
+    - name: Analyze failure
+      env:
+        PYTHONPATH: .
+      run: |
         unzstd /var/lib/systemd/coredump/core.python.*
         pystack core ./core --locals
         pystack core ./core --native
-
-
