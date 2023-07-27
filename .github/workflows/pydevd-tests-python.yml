@@ -77,7 +77,7 @@ jobs:
         sudo sysctl kernel.yama.ptrace_scope=0
         sudo apt-get install xvfb
         sudo apt-get install libqt5x11extras5
-        sudo apt-get install systemd-coredump
+        sudo apt-get install systemd-coredump libdw-dev libelf-dev
         Xvfb -ac :99 -screen 0 1280x1024x16 > /dev/null 2>&1 &
       if: contains(matrix.name, 'ubuntu')
     - name: Install common Python deps
