@@ -136,6 +136,10 @@ jobs:
       env:
         PYTHONPATH: .
       run: |
-        unzstd /var/lib/systemd/coredump/core.python.*
-        pystack core ./core --locals
-        pystack core ./core --native
+        for i in /var/lib/systemd/coredump/core.python.*; do
+          sudo cp $i core.zst
+          unzstd core.zst
+          pystack core ./core --locals
+          pystack core ./core --native
+        done
+        
