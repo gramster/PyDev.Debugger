@@ -138,6 +138,7 @@ jobs:
       run: |
         for i in /var/lib/systemd/coredump/core.python.*; do
           sudo cp $i core.zst
+          sudo chmod a+rw core.zst
           unzstd core.zst
           pystack core ./core --locals
           pystack core ./core --native
